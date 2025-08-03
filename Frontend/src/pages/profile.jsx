@@ -71,7 +71,7 @@ const Profile = () => {
         skills: skillsArray
       };
 
-      const res = await axios.put('http://localhost:3000/api/users/me', payload);
+      const res = await axios.put('https://job-portal-backend-dkt3.onrender.com/api/users/me', payload);
       updateUser(res.data);
       alert('Profile updated successfully');
       setEditing(false);
