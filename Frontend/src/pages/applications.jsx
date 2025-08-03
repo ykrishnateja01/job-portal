@@ -3,7 +3,7 @@ import axios from 'axios';
 import { useQuery } from 'react-query';
 
 const fetchApplications = async () => {
-  const { data } = await axios.get('http://localhost:3000/api/jobs/user/applications');
+  const { data } = await axios.get('https://job-portal-backend-dkt3.onrender.com/api/jobs/user/applications');
   return data;
 };
 
