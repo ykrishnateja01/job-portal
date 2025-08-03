@@ -31,7 +31,7 @@ export const AuthProvider = ({ children }) => {
     const checkAuth = async () => {
       if (token) {
         try {
-          const response = await axios.get('http://localhost:3000/api/auth/me');
+          const response = await axios.get('https://job-portal-backend-dkt3.onrender.com/api/auth/me');
           setUser(response.data);
         } catch (error) {
           localStorage.removeItem('token');
@@ -45,7 +45,7 @@ export const AuthProvider = ({ children }) => {
 
   const login = async (email, password) => {
     try {
-      const response = await axios.post('http://localhost:3000/api/auth/login', { email, password });
+      const response = await axios.post('https://job-portal-backend-dkt3.onrender.com/api/auth/login', { email, password });
       const { token: newToken, user: userData } = response.data;
 
       localStorage.setItem('token', newToken);
@@ -63,7 +63,7 @@ export const AuthProvider = ({ children }) => {
 
   const register = async (userData) => {
     try {
-      await axios.post('http://localhost:3000/api/auth/register', userData);
+      await axios.post('https://job-portal-backend-dkt3.onrender.com/api/auth/register', userData);
       toast.success('Registration successful! Please check your email for verification.');
       return { success: true };
     } catch (error) {
@@ -76,7 +76,7 @@ export const AuthProvider = ({ children }) => {
   // New method to verify email with 6-digit code
   const verifyEmail = async (email, code) => {
     try {
-      await axios.post('http://localhost:3000/api/auth/verify', { email, code });
+      await axios.post('https://job-portal-backend-dkt3.onrender.com/api/auth/verify', { email, code });
       toast.success('Email verified successfully!');
       return { success: true };
     } catch (error) {
