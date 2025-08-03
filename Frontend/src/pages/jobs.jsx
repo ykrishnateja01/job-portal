@@ -6,7 +6,7 @@ import { useQuery } from 'react-query';
 
 const fetchJobs = async ({ queryKey }) => {
   const [_key, params] = queryKey;
-  const { data } = await axios.get('http://localhost:3000/api/jobs', { params });
+  const { data } = await axios.get('https://job-portal-backend-dkt3.onrender.com/api/jobs', { params });
   return data;
 };
 
