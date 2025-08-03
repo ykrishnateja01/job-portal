@@ -15,7 +15,7 @@ const Dashboard = () => {
   useEffect(() => {
     const getApplications = async () => {
       try {
-        const res = await axios.get('http://localhost:3000/api/jobs/user/applications');
+        const res = await axios.get('https://job-portal-backend-dkt3.onrender.com/api/jobs/user/applications');
         setApplications(res.data ?? []);
       } catch (err) {
         setApplications([]);
@@ -28,7 +28,7 @@ const Dashboard = () => {
   // Handle "Jobs You Posted" card click
   const fetchPostedApplications = async () => {
     try {
-      const res = await axios.get('http://localhost:3000/api/jobs/user/posted-applications');
+      const res = await axios.get('https://job-portal-backend-dkt3.onrender.com/api/jobs/user/posted-applications');
       setPostedApps(res.data ?? []);
       setShowPostedApps(true);
     } catch (err) {
