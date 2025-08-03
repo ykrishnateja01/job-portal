@@ -5,7 +5,7 @@ import { useQuery } from 'react-query';
 
 const fetchJob = async ({ queryKey }) => {
   const [_key, id] = queryKey;
-  const { data } = await axios.get(`http://localhost:3000/api/jobs/${id}`);
+  const { data } = await axios.get(`https://job-portal-backend-dkt3.onrender.com/api/jobs/${id}`);
   return data;
 };
 
@@ -66,7 +66,7 @@ const JobDetail = () => {
       const formData = new FormData();
       formData.append("resume", file);
 
-      const res = await axios.post(`http://localhost:3000/api/ai/parse-resume`, formData, {
+      const res = await axios.post(`https://job-portal-backend-dkt3.onrender.com/api/ai/parse-resume`, formData, {
         headers: { 'Content-Type': 'multipart/form-data' }
       });
 
@@ -107,7 +107,7 @@ const JobDetail = () => {
     formData.append("coverLetter", coverLetter || formFields.coverLetter);
     if (resume) formData.append("resume", resume);
     try {
-      await axios.post(`http://localhost:3000/api/jobs/${id}/apply`, formData, {
+      await axios.post(`https://job-portal-backend-dkt3.onrender.com/api/jobs/${id}/apply`, formData, {
         headers: { 'Content-Type': 'multipart/form-data' }
       });
       setApplied(true);
